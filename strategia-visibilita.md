@@ -28,13 +28,13 @@ Prima di costruire la strategia, due chiarimenti tecnici che cambiano le priorit
 
 È la leva con il ritorno più alto sia per la SEO locale sia per le citazioni AI: le recensioni sono testo fresco, ricco di parole chiave naturali (nomi di location, "destination wedding", "fotografo matrimonio") e di segnali di sentiment che le AI leggono direttamente.
 
-**Google Business Profile (GBP).** Antonio ha già una scheda (12 recensioni). Da completare/ottimizzare: categoria primaria "Fotografo di matrimoni", categorie secondarie (Fotografo, Servizio fotografico), area servita (Calabria, Sicilia, Puglia, Toscana, "tutta Italia"), descrizione in italiano e inglese che ripete l'entità (vedi boilerplate in §10), link al sito, orari/contatti, e soprattutto **post settimanali** (anche solo una foto + due righe) e **caricamento foto** costante. Le schede aggiornate vengono pescate molto più spesso dalle AI locali.
+**Google Business Profile (GBP).** Antonio ha già una scheda (12 recensioni). Da completare/ottimizzare: categoria primaria "Fotografo di matrimoni", categorie secondarie (Fotografo, Servizio fotografico), area servita (Calabria, Sicilia, Puglia, Toscana, "tutta Italia"), descrizione in italiano e inglese che ripete l'entità (vedi boilerplate in §11), link al sito, orari/contatti, e soprattutto **post settimanali** (anche solo una foto + due righe) e **caricamento foto** costante. Le schede aggiornate vengono pescate molto più spesso dalle AI locali.
 
 **Obiettivo recensioni:** passare da 12 a **30+ recensioni Google in 6 mesi**, poi mantenere un flusso costante (1–3/mese). La quantità conta, ma conta di più la *ricchezza testuale*: una recensione che nomina "matrimonio a Tropea" o "servizio in pellicola" vale doppio in ottica AEO.
 
 **Come ottenerle senza forzature:**
 - Crea un **link breve diretto** alla scheda Google ("Lascia una recensione") e inseriscilo nella firma email, nella consegna gallery Pixieset e nel messaggio di chiusura progetto.
-- Chiedi **al momento giusto**: alla consegna della gallery finale, quando l'emozione è alta. Usa il template in §10 (IT/EN).
+- Chiedi **al momento giusto**: alla consegna della gallery finale, quando l'emozione è alta. Usa il template in §11 (IT/EN).
 - **Suggerisci i dettagli da citare** senza scriverli tu: "se ti va, racconta dove vi siete sposati e cosa ti è rimasto del nostro modo di lavorare". Questo guida naturalmente verso recensioni ricche di parole chiave.
 - **Rispondi a tutte le recensioni** (anche con poche parole): le risposte sono testo aggiuntivo indicizzabile e mostrano cura del brand.
 
@@ -46,7 +46,7 @@ Prima di costruire la strategia, due chiarimenti tecnici che cambiano le priorit
 
 I dati strutturati spiegano alle macchine *chi è* Antonio in modo machine‑readable: nome, professione, aree servite, lingue, profili social ufficiali, FAQ. È ciò che alimenta i rich result di Google e dà alle AI una "scheda anagrafica" pulita da citare. Si inserisce **una volta** nel codice header di Pixieset (piano Pro).
 
-Trovi due blocchi pronti all'uso in **§10 — Allegato A**: uno `ProfessionalService/Photographer` per identificare l'attività e collegarla a tutti i profili (`sameAs`), e uno `FAQPage` per la pagina FAQ. 
+Trovi due blocchi pronti all'uso in **§11 — Allegato A**: uno `ProfessionalService/Photographer` per identificare l'attività e collegarla a tutti i profili (`sameAs`), e uno `FAQPage` per la pagina FAQ. 
 
 **Avvertenza sulle recensioni nello schema:** non inserire un `aggregateRating` che somma recensioni Google + Matrimonio come se fossero raccolte sul sito — è contro le linee guida di Google e rischia penalizzazioni. La strada corretta è pubblicare sul sito alcune **testimonianze reali** (con nome e location) e marcare *quelle* con schema `Review`. Le recensioni Google restano su Google, dove fanno il loro lavoro.
 
@@ -64,7 +64,25 @@ Qui si costruiscono insieme SEO long‑tail e AEO. Ogni contenuto deve esistere 
 
 **Voce del brand (tono e sentiment).** Mantieni la linea esistente: sobria, sensoriale, anti‑trend, centrata su atmosfera/famiglia/memoria/luogo. Regole operative: prima persona, frasi brevi, niente superlativi di marketing, racconto del *come è stato vissuto* il giorno più che della tecnica. Questo tono coerente, ripetuto su sito, directory, social e GBP, è ciò che dà al brand un "sentiment" riconoscibile che le AI restituiscono fedelmente.
 
-**Cadenza realistica:** 1 contenuto ogni 2 settimane (alternando A, B, C). In 90 giorni hai ~6 pagine nuove: abbastanza per cambiare il profilo del sito da "vetrina" a "fonte autorevole".
+**Cadenza realistica:** 1 contenuto ogni 2 settimane (alternando A, B, C, D). In 90 giorni hai ~6 pagine nuove: abbastanza per cambiare il profilo del sito da "vetrina" a "fonte autorevole".
+
+**Tipo D — Contenuti per coppie internazionali.** Le coppie che arrivano dall'estero hanno barriere pratiche prima ancora di pensare al fotografo: documenti legali, tempi di residenza, celebrazioni civili vs religiose, pubblicazioni. Se Antonio risponde a queste domande, diventa la risorsa di riferimento prima ancora del booking. Serie di 4 guide evergreen:
+1. *Getting married in Italy as a foreign couple: legal requirements*
+2. *Destination wedding in Calabria: the complete guide for international couples*
+3. *Best time of year for a destination wedding in Southern Italy*
+4. *How to choose a wedding photographer in Italy from abroad*
+Contenuti ad altissima intenzione di conversione, zero concorrenza SEO (pochissimi fotografi li hanno), posizionano Antonio come figura di fiducia. Una volta scritti, restano evergreen.
+
+**Sistema di riciclo contenuti "uno a molti".** Ogni contenuto sorgente (real wedding, guida, FAQ) genera 8 output su 7 canali, con minimo lavoro aggiuntivo:
+1. Blog post (IT+EN) — SEO
+2. Carousel Instagram — social
+3. Reel teaser (da foto animata) — IG/TikTok
+4. Audio episodio (da NotebookLM) — YouTube/Spotify
+5. Trascrizione audio — altra pagina SEO
+6. 3 Pinterest pin — traffico passivo
+7. Newsletter Substack — audience di proprietà
+8. Post LinkedIn/Facebook — B2B
+Questo risolve il collo di bottiglia del tempo di Antonio: 1 contenuto di 30 minuti diventa un mese di pubblicazione su tutti i canali.
 
 ---
 
@@ -72,7 +90,7 @@ Qui si costruiscono insieme SEO long‑tail e AEO. Ogni contenuto deve esistere 
 
 Le FAQ sono il formato AEO per eccellenza: domanda esplicita + risposta autonoma di 40–60 parole, esattamente ciò che le AI estraggono e citano. Crea una pagina `/faq/` (o sezione in Contact/About), in **IT ed EN**, e marcala con lo schema `FAQPage` dell'Allegato A.
 
-Trovi un set di **10 FAQ pronte (IT + EN)** in §10 — Allegato B. Coprono le query a più alta intenzione: aree di lavoro, lingue, cosa sono pellicola/VHS, quando prenotare, come funziona la consegna, lavoro con coppie straniere, ecc. Le risposte sono scritte per essere "citabili" così come sono.
+Trovi un set di **10 FAQ pronte (IT + EN)** in §11 — Allegato B. Coprono le query a più alta intenzione: aree di lavoro, lingue, cosa sono pellicola/VHS, quando prenotare, come funziona la consegna, lavoro con coppie straniere, ecc. Le risposte sono scritte per essere "citabili" così come sono.
 
 ---
 
@@ -80,7 +98,7 @@ Trovi un set di **10 FAQ pronte (IT + EN)** in §10 — Allegato B. Coprono le q
 
 "Be everywhere" non significa essere su molte piattaforme con contenuti scollegati: significa che **la stessa entità è descritta in modo identico ovunque**, così le macchine la riconoscono come un unico soggetto autorevole. È il lavoro meno visibile e più sottovalutato dell'AEO.
 
-**NAP + bio coerenti.** Su tutti i 9 profili (sito, Instagram, Facebook, YouTube, Pinterest, Google, Matrimonio.com, Together Journal, Loverly, MyWed) devono coincidere: nome esatto ("Antonio Pileggi"), telefono (+39 327 9287 726), URL sito, e la **stessa bio boilerplate** (§10 — Allegato C) declinata IT/EN. Ogni profilo deve linkare il sito; il sito deve linkare ogni profilo (e questi link vanno anche nel campo `sameAs` dello schema).
+**NAP + bio coerenti.** Su tutti i 9 profili (sito, Instagram, Facebook, YouTube, Pinterest, Google, Matrimonio.com, Together Journal, Loverly, MyWed) devono coincidere: nome esatto ("Antonio Pileggi"), telefono (+39 327 9287 726), URL sito, e la **stessa bio boilerplate** (§11 — Allegato C) declinata IT/EN. Ogni profilo deve linkare il sito; il sito deve linkare ogni profilo (e questi link vanno anche nel campo `sameAs` dello schema).
 
 **Sfrutta le directory come fonti AEO.** Matrimonio.com, Together Journal, Loverly e MyWed sono già il tuo asset più forte per le citazioni AI. Mantienile complete al 100%: bio aggiornata, portfolio recente, aree servite, recensioni. Quando un'AI risponde "fotografi di matrimonio in Sud Italia", pesca da lì.
 
@@ -109,11 +127,29 @@ Obiettivo: pubblicare con regolarità contenuti di qualità che facciano *intera
 - **Pinterest** — motore di scoperta evergreen e SEO‑friendly: ricicla ogni real wedding e guida location in board geolocalizzate ("Matrimoni in Calabria", "Wedding in Puglia"). Ottimo traffico passivo verso il sito.
 - **Facebook** — ripubblica i contenuti chiave, utile per coppie 30–45 e per i gruppi di settore/sposi.
 
-**Sistematicità.** Pianifica a blocchi mensili (un calendario base in §10 — Allegato E). Usa uno scheduler gratuito (Meta Business Suite per IG/FB è gratis) per non dipendere dalla disponibilità giornaliera.
+**Sistematicità.** Pianifica a blocchi mensili (un calendario base in §11 — Allegato E). Usa uno scheduler gratuito (Meta Business Suite per IG/FB è gratis) per non dipendere dalla disponibilità giornaliera.
 
 ---
 
-## 8. Pilastro 7 — llms.txt e robots.txt: cosa fare *davvero*
+## 8. Pilastro 7 — Pipeline B2B con planner e venue
+
+La rete di referral professionale (planner, venue, wedding coordinator) è il canale che porta i clienti ad alto valore. Mentre il motore di reciprocità (§6) gestisce il *dopo* matrimonio, questo pilastro costruisce le relazioni *prima* — con planner e venue con cui Antonio NON ha ancora lavorato.
+
+**Mappatura iniziale.** Lista di 20 venue/planner target in Calabria, Sicilia, Puglia, Toscana. Criteri: fascia luxury, destination-friendly, social media attivi, allineati al tono del brand.
+
+**Pipeline di outreach (1 contatto/settimana).** Ogni settimana:
+1. Identifica il contatto target della settimana
+2. Prepara un messaggio personalizzato con commento su un loro lavoro recente
+3. Antonio invia (10 minuti)
+4. Traccia la risposta nel tracker partner
+
+**Follow-up.** Se non risponde dopo 2 settimane, secondo tocco con un real wedding fatto in una venue simile alla loro. Terzo tocco dopo 4 settimane con un feature kit già pronto.
+
+**Tempistica:** 20 minuti/settimana di Antonio (messaggi brevi preparati da te). In 20 settimane hai coperto l'intera mappatura iniziale.
+
+---
+
+## 9. Pilastro 8 — llms.txt e robots.txt: cosa fare *davvero*
 
 Come spiegato in §1, su Pixieset non puoi gestire questi file e il loro impatto attuale è marginale. Quindi:
 - **Non perdere tempo** a cercare di forzare un `llms.txt` su Pixieset. Se un giorno il sito migrasse su una piattaforma con accesso alla root (o si aggiungesse un sottodominio su hosting proprio), allora un `llms.txt` essenziale (titolo, descrizione‑entità, link alle pagine chiave) costa mezza giornata e si può aggiungere "per completezza". Non prima.
@@ -121,7 +157,7 @@ Come spiegato in §1, su Pixieset non puoi gestire questi file e il loro impatto
 
 ---
 
-## 9. Pilastro 8 — Monitoraggio (tutto gratuito)
+## 10. Pilastro 9 — Monitoraggio (tutto gratuito)
 
 - **Google Search Console** (gratis) — la priorità. Verifica il dominio (via codice header Pixieset o record DNS), invia la sitemap, monitora query, impressioni, clic e pagine indicizzate. È così che misuri se i nuovi contenuti vengono trovati. *(Nota: "Google Search Console" è ciò che intendevi con "google search"; è il servizio gratuito giusto per il monitoraggio.)*
 - **Google Analytics 4** (gratis) — inserito via header code: da dove arriva il traffico, cosa converte verso la pagina Contact.
@@ -130,7 +166,7 @@ Come spiegato in §1, su Pixieset non puoi gestire questi file e il loro impatto
 
 ---
 
-## 10. Allegati pronti all'uso
+## 11. Allegati pronti all'uso
 
 ### Allegato A — Dati strutturati JSON‑LD (da incollare nel codice header Pixieset, piano Pro)
 
@@ -266,27 +302,44 @@ Come spiegato in §1, su Pixieset non puoi gestire questi file e il loro impatto
 
 ---
 
-## 11. Roadmap 90 giorni (in ordine di priorità ed effetto)
+## 12. Roadmap annuale stagionale
 
-**Settimane 1–2 — Fondamenta tecniche**
-- Verifica piano Pixieset; se necessario, upgrade a Website‑Pro (sblocca header code).
-- Collega Google Search Console + Google Analytics 4 (via header code); invia la sitemap.
-- Completa/ottimizza Google Business Profile (categorie, aree, descrizione IT/EN, primo post).
-- Inserisci il JSON‑LD `ProfessionalService` (Allegato A) nell'header.
+Il piano è strutturato su 4 stagioni, non su 90gg lineari. I matrimoni sono stagionali: Antonio è in campo da maggio a ottobre e ha energia zero per contenuti. La produzione si concentra nei mesi morti (ottobre-marzo), la pubblicazione è schedulata e automatica in alta stagione.
 
-**Settimane 3–4 — Entità e fiducia**
-- Uniforma NAP + bio (Allegato C) su tutti i 9 profili; collega tutto in `sameAs`.
-- Crea la pagina FAQ IT/EN (Allegato B) + schema `FAQPage`.
-- Avvia il motore recensioni: link breve Google + template (Allegato D) nel flusso di consegna; chiedi alle ultime 5 coppie.
+### Ottobre — Marzo (produzione)
 
-**Settimane 5–8 — Contenuti**
-- Pubblica 2 Real Wedding (IT+EN) sulle location più forti (es. Tropea, Puglia).
-- Pubblica 1 guida location ("Dove sposarsi in Calabria") e 1 pagina pilastro VHS.
-- Avvia il calendario social sistematico (Allegato E) con scheduler gratuito.
+**Fondamenta tecniche (prima settimana):** verifica piano Pixieset (upgrade Pro se necessario), collega GSC + GA4 via header code, inserisci JSON‑LD ProfessionalService, ottimizza GBP (categorie, aree, descrizione IT/EN).
 
-**Settimane 9–12 — Ritmo e misura**
-- Continua: 1 contenuto/2 settimane, ritmo social costante, 1–3 recensioni/mese.
-- Aggiungi testimonianze reali sul sito con schema `Review`.
-- Primo check di monitoraggio: GSC (query/impressioni), GBP Insights, e test citazioni AI manuale sulle query target.
+**Entità e fiducia (settimane 2–3):** uniforma NAP + bio su tutti i profili, crea pagina FAQ IT/EN + schema FAQPage, avvia motore recensioni (link breve + template nel flusso di consegna).
 
-**Nota finale.** Le tre cose che, se fatte bene, spostano davvero l'ago in 90 giorni sono: (1) il motore di recensioni Google, (2) i dati strutturati + FAQ, (3) i contenuti editoriali bilingue su location e metodo. Tutto il resto amplifica queste tre.
+**Contenuti (tutto il periodo):** produci tutti i contenuti dell'anno: 4–6 Real Wedding (IT+EN), 2 guide location, 1 pagina pilastro VHS, 4 guide coppie internazionali, registrazioni audio per podcast.
+
+**B2B pipeline:** completa la mappatura dei primi 20 contatti; inizia outreach 1/settimana.
+
+**Sistema di riciclo:** per ogni contenuto prodotto, genera gli 8 output (blog, carousel, reel, audio, trascrizione, pin, newsletter, social).
+
+### Aprile (pre-stagione)
+
+- Tutti i contenuti sono stati prodotti e schedulati (social, newsletter, blog).
+- Ultimo giro di recensioni richieste alle coppie dell'anno precedente.
+- Attiva la newsletter con la prima edizione.
+- Verifica che tutto (FAQ, schema, profili, GBP) sia allineato prima della stagione.
+
+### Maggio — Ottobre (alta stagione)
+
+- **Zero produzione di contenuti nuovi.** Solo:
+  - Stories quotidiane (dietro le quinte, in giornata)
+  - Richiesta recensioni alla consegna gallery
+  - B2B follow-up (20 min/settimana)
+- Tutto il resto è già schedulato e pubblicato automaticamente.
+- **Settembre:** push "Now booking 2027" su tutti i canali (IG, FB, newsletter, GBP).
+
+### Check di monitoraggio (mensile, 30 min)
+
+- Google Search Console: query, impressioni, clic.
+- GBP Insights: ricerche, chiamate, richieste indicazioni.
+- Test citazioni AI manuale: le 20+ query × 5 motori × 2 lingue.
+- Tracker recensioni: quante ricevute questo mese?
+- B2B tracker: contatti fatti, risposte ricevute, referral ottenuti.
+
+**Nota finale.** Le tre cose che spostano l'ago sono sempre: (1) recensioni Google, (2) dati strutturati + FAQ, (3) contenuti bilingue. Il resto amplifica. Ma ora la produzione è concentrata dove Antonio ha tempo, e l'alta stagione è coperta da ciò che è già stato seminato.
