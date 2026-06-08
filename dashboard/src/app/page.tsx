@@ -25,6 +25,75 @@ const blockIcons: Record<string, string> = {
 
 const defaultAuthors = ['Antonio', 'Team', 'AI']
 
+// --- Rich text rendering for `text` blocks -------------------------------
+// A markdown table separator row is made only of pipes, dashes, colons and
+// spaces and contains at least one dash, e.g. |------------|--------------|
+function isTableSeparator(line: string): boolean {
+  const t = line.trim()
+  return t.includes('-') && /^[|\s:-]+$/.test(t)
+}
+
+function splitRow(line: string): string[] {
+  return line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(c => c.trim())
+}
+
+function renderMarkdownTable(lines: string[], key: string): React.ReactNode {
+  const hasHeader = lines.length > 1 && isTableSeparator(lines[1])
+  const headerCells = hasHeader ? splitRow(lines[0]) : null
+  const rows = lines
+    .filter((l, i) => !isTableSeparator(l) && !(hasHeader && i === 0))
+    .map(splitRow)
+  return (
+    <div key={key} className="overflow-x-auto my-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700">
+      <table className="w-full text-xs sm:text-sm border-collapse">
+        {headerCells && (
+          <thead>
+            <tr>
+              {headerCells.map((c, i) => (
+                <th key={i} className="bg-zinc-100 dark:bg-zinc-800 px-2.5 py-1.5 text-left font-semibold text-zinc-800 dark:text-zinc-200 border-b border-zinc-200 dark:border-zinc-700 whitespace-nowrap">{c}</th>
+              ))}
+            </tr>
+          </thead>
+        )}
+        <tbody>
+          {rows.map((r, ri) => (
+            <tr key={ri} className="even:bg-zinc-50 dark:even:bg-zinc-800/40 border-b border-zinc-100 dark:border-zinc-800 last:border-0">
+              {r.map((c, ci) => (
+                <td key={ci} className="px-2.5 py-1.5 text-zinc-700 dark:text-zinc-300 align-top">{c}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
+// Renders a text block's content: markdown tables become real tables, blank
+// lines become spacing, every other line keeps its own line break.
+function renderRichText(content: string): React.ReactNode {
+  const lines = content.split('\n')
+  const out: React.ReactNode[] = []
+  let i = 0
+  let k = 0
+  while (i < lines.length) {
+    if (lines[i].trim().startsWith('|')) {
+      const tbl: string[] = []
+      while (i < lines.length && lines[i].trim().startsWith('|')) { tbl.push(lines[i]); i++ }
+      if (tbl.some(isTableSeparator)) {
+        out.push(renderMarkdownTable(tbl, `tbl-${k++}`))
+      } else {
+        tbl.forEach(t => out.push(<div key={`row-${k++}`}>{t}</div>))
+      }
+    } else {
+      const line = lines[i]
+      out.push(line.trim() === '' ? <div key={`gap-${k++}`} className="h-2" /> : <div key={`ln-${k++}`}>{line}</div>)
+      i++
+    }
+  }
+  return <>{out}</>
+}
+
 export default function Workspace() {
   const [workspace, setWorkspace] = useState<Workspace | null>(null)
   const [loaded, setLoaded] = useState(false)
@@ -688,36 +757,70 @@ export default function Workspace() {
       case 'text':
         return (
           <div key={block.id} className="relative group py-0.5">
-            <div className="flex items-center gap-2">
+            <div className="flex items-start gap-2">
               {editingBlock === block.id ? (
                 <div className="flex-1 relative">
-                  <input
+                  <div className="mb-1 flex flex-wrap gap-1">
+                    <button
+                      type="button"
+                      onMouseDown={e => {
+                        e.preventDefault()
+                        setEditBlockContent(c => (c.trim() ? c.replace(/\s*$/, '') + '\n\n' : '') + '| Colonna 1 | Colonna 2 | Colonna 3 |\n| --- | --- | --- |\n| | | |')
+                      }}
+                      className="text-[11px] px-2 py-0.5 rounded border border-zinc-300 dark:border-zinc-600 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors"
+                    >+ Tabella</button>
+                    <button
+                      type="button"
+                      onMouseDown={e => {
+                        e.preventDefault()
+                        setEditBlockContent(c => {
+                          const rowLine = [...c.split('\n')].reverse().find(l => l.trim().startsWith('|'))
+                          const cols = rowLine ? rowLine.split('|').filter(s => s.trim() !== '').length : 3
+                          return c.replace(/\s*$/, '') + '\n|' + ' |'.repeat(Math.max(1, cols))
+                        })
+                      }}
+                      className="text-[11px] px-2 py-0.5 rounded border border-zinc-300 dark:border-zinc-600 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors"
+                    >+ Riga tabella</button>
+                  </div>
+                  <textarea
                     autoFocus
                     value={editBlockContent}
+                    rows={Math.min(24, Math.max(3, editBlockContent.split('\n').length + 1))}
                     onChange={e => {
                       setEditBlockContent(e.target.value)
                       handleSlashInput(e.target.value, block.id)
                     }}
-                    onBlur={() => { 
+                    onBlur={() => {
                       if (!slashMenu) { updateBlock(pageId, block.id, b => ({ ...b, content: editBlockContent })); setEditingBlock(null) }
                     }}
                     onKeyDown={e => {
-                      if (e.key === 'Escape') { setSlashMenu(null); setSlashValue(''); setEditingBlock(null) }
-                      if (e.key === 'Enter' && !slashMenu) { updateBlock(pageId, block.id, b => ({ ...b, content: editBlockContent })); setEditingBlock(null) }
-                      if (e.key === 'Enter' && slashMenu) { e.preventDefault(); setSlashMenu(null); setSlashValue('') }
+                      if (e.key === 'Escape') {
+                        e.preventDefault()
+                        if (slashMenu) { setSlashMenu(null); setSlashValue('') }
+                        else { updateBlock(pageId, block.id, b => ({ ...b, content: editBlockContent })); setEditingBlock(null) }
+                      } else if (e.key === 'Enter' && slashMenu) {
+                        e.preventDefault(); setSlashMenu(null); setSlashValue('')
+                      } else if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
+                        e.preventDefault()
+                        updateBlock(pageId, block.id, b => ({ ...b, content: editBlockContent })); setEditingBlock(null)
+                      }
                     }}
-                    placeholder="Scrivi / per comandi..."
-                    className="w-full text-sm bg-transparent border-b border-zinc-300 dark:border-zinc-600 focus:outline-none text-zinc-700 dark:text-zinc-300"
+                    placeholder="Scrivi testo, elenchi o tabelle…  ( / per i comandi )"
+                    className={`w-full ${/(^|\n)\s*\|.*\|/.test(editBlockContent) ? 'font-mono text-xs' : 'text-sm'} bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-600 rounded-md px-2.5 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400/40 text-zinc-700 dark:text-zinc-300 leading-relaxed resize-y`}
                   />
+                  <div className="mt-1 text-[10px] text-zinc-400 dark:text-zinc-500">
+                    ⌘/Ctrl+Invio o Esc per salvare · Invio = a capo · tabelle: separa le colonne con |
+                  </div>
                   {renderSlashMenu(block.id, pageId)}
                 </div>
               ) : (
-                <span
+                <div
                   onClick={() => { setEditingBlock(block.id); setEditBlockContent(block.content) }}
-                  className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed cursor-text"
+                  title="Clicca per modificare"
+                  className="flex-1 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed cursor-text rounded px-1 -mx-1 hover:bg-zinc-50 dark:hover:bg-zinc-800/40 transition-colors"
                 >
-                  {block.content || <span className="text-zinc-300 dark:text-zinc-600 italic">Scrivi / per comandi...</span>}
-                </span>
+                  {block.content ? renderRichText(block.content) : <span className="text-zinc-300 dark:text-zinc-600 italic">Scrivi / per comandi...</span>}
+                </div>
               )}
               {commentBubble}
             </div>
@@ -1536,6 +1639,8 @@ export default function Workspace() {
           {([
             { key: 'strategia', label: 'Strategia', icon: '◇' },
             { key: 'risorse', label: 'Risorse', icon: '🧰' },
+            { key: 'community', label: 'Community e Gruppi', icon: '💬' },
+            { key: 'monitoraggio', label: 'Monitoraggio AI', icon: '📈' },
             { key: 'operativo', label: 'Operativo', icon: '📋' },
             { key: 'spazio-libero', label: 'Spazio libero', icon: '✦' },
           ] as const).map(section => {
