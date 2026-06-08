@@ -15,6 +15,8 @@ import { defaultCommunityWeddingBlocks } from './communitywedding'
 import { defaultBaselineBlocks } from './baseline'
 import { defaultKeywordsBlocks } from './keywords'
 import { defaultGlossarioBlocks } from './glossario'
+import { defaultPartiDaQuiBlocks } from './partidaqui'
+import { defaultDiscoveryBlocks } from './discovery'
 
 export const defaultBlocks: Block[] = [
   { id: 'b-h', type: 'heading', content: 'Strategia di visibilità AEO + SEO — Antonio Pileggi', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
@@ -260,6 +262,14 @@ export const defaultDatabaseData: DatabaseData = {
 
 export const defaultPages: Page[] = [
   {
+    id: 'page-parti-da-qui',
+    title: 'Parti da qui',
+    icon: '🚀',
+    section: 'strategia',
+    view: 'blocks',
+    blocks: defaultPartiDaQuiBlocks,
+  },
+  {
     id: 'page-overview',
     title: 'Overview',
     icon: '◻',
@@ -480,6 +490,14 @@ export const defaultPages: Page[] = [
     section: 'operativo',
     view: 'blocks',
     blocks: defaultReciprocitaBlocks,
+  },
+  {
+    id: 'page-discovery',
+    title: 'Questionario Discovery',
+    icon: '📝',
+    section: 'operativo',
+    view: 'blocks',
+    blocks: defaultDiscoveryBlocks,
   },
   {
     id: 'page-cowork',
