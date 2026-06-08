@@ -60,7 +60,7 @@ export type DatabaseData = {
   rows: TableRow[]
 }
 
-export type PageSection = 'strategia' | 'risorse' | 'operativo' | 'spazio-libero'
+export type PageSection = 'strategia' | 'risorse' | 'community' | 'monitoraggio' | 'operativo' | 'spazio-libero'
 
 export type Page = {
   id: string

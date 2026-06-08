@@ -7,6 +7,14 @@ import { defaultReciprocitaBlocks } from './reciprocita'
 import { defaultCoworkBlocks } from './cowork'
 import { defaultPostitBlocks } from './postit'
 import { defaultGuidaBlocks } from './guida'
+import { defaultBusinessPlanBlocks } from './businessplan'
+import { defaultSpuntiBlocks } from './spunti'
+import { defaultRedditBlocks } from './reddit'
+import { defaultPiattaformeBlocks } from './piattaforme'
+import { defaultCommunityWeddingBlocks } from './communitywedding'
+import { defaultBaselineBlocks } from './baseline'
+import { defaultKeywordsBlocks } from './keywords'
+import { defaultGlossarioBlocks } from './glossario'
 
 export const defaultBlocks: Block[] = [
   { id: 'b-h', type: 'heading', content: 'Strategia di visibilità AEO + SEO — Antonio Pileggi', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
@@ -180,8 +188,8 @@ export const defaultBoardData: BoardColumn[] = [
       { id: 'bc-c6', title: 'Flow — teaser animato', description: 'Produce il primo teaser con Flow animando una foto reale. Hook per reel/Shorts.', done: false, comments: [], fileName: '', fileData: '', fileType: '', labels: [] },
       { id: 'bc-c7', title: 'NotebookLM — episodio pilota', description: 'Crea il primo episodio NotebookLM (IT+EN) da una guida location e pubblicalo con trascrizione.', done: false, comments: [], fileName: '', fileData: '', fileType: '', labels: [] },
       { id: 'bc-b2b', title: 'Pipeline B2B — outreach planner/venue', description: 'Mappa 20 contatti target, inizia outreach 1/settimana con messaggio personalizzato.', done: false, comments: [], fileName: '', fileData: '', fileType: '', labels: [] },
-      { id: 'bc-p1', title: 'Feature kit standard', description: 'Creare il template del feature kit per i fornitori (cartella Drive + PDF con immagini, blurb, link). Owner: Tu.', done: false, comments: [], fileName: '', fileData: '', fileType: '', labels: [] },
-      { id: 'bc-p2', title: 'Tracker partner + UTM', description: 'Impostare la convenzione UTM vendor-feature e il foglio di tracciamento partner. Owner: Tu.', done: false, comments: [], fileName: '', fileData: '', fileType: '', labels: [] },
+      { id: 'bc-p1', title: 'Feature kit standard', description: 'Creare il template del feature kit per i fornitori (cartella Drive + PDF con immagini, blurb, link). Owner: Lorenzo.', done: false, comments: [], fileName: '', fileData: '', fileType: '', labels: [] },
+      { id: 'bc-p2', title: 'Tracker partner + UTM', description: 'Impostare la convenzione UTM vendor-feature e il foglio di tracciamento partner. Owner: Lorenzo.', done: false, comments: [], fileName: '', fileData: '', fileType: '', labels: [] },
       { id: 'bc-p3', title: 'Feature kit all\'ultimo matrimonio', description: 'Inviare il feature kit ai fornitori dell\'ultimo matrimonio pubblicato. Owner: Antonio.', done: false, comments: [], fileName: '', fileData: '', fileType: '', labels: [] },
       { id: 'bc-p4', title: 'Richiesta fornitori consigliati', description: 'Richiedere l\'inserimento tra i fornitori consigliati a [venue principale]. Owner: Antonio.', done: false, comments: [], fileName: '', fileData: '', fileType: '', labels: [] },
     ],
@@ -266,6 +274,22 @@ export const defaultPages: Page[] = [
     section: 'strategia',
     view: 'blocks',
     blocks: defaultStrategiaBlocks,
+  },
+  {
+    id: 'page-businessplan',
+    title: 'Business Plan',
+    icon: '📊',
+    section: 'strategia',
+    view: 'blocks',
+    blocks: defaultBusinessPlanBlocks,
+  },
+  {
+    id: 'page-spunti',
+    title: 'Spunti dal Review',
+    icon: '💡',
+    section: 'strategia',
+    view: 'blocks',
+    blocks: defaultSpuntiBlocks,
   },
   {
     id: 'page-timeline',
@@ -392,6 +416,54 @@ export const defaultPages: Page[] = [
     section: 'risorse',
     view: 'blocks',
     blocks: defaultGuidaBlocks,
+  },
+  {
+    id: 'page-keywords',
+    title: 'Parole Chiave',
+    icon: '🔍',
+    section: 'risorse',
+    view: 'blocks',
+    blocks: defaultKeywordsBlocks,
+  },
+  {
+    id: 'page-glossario',
+    title: 'Glossario',
+    icon: '📖',
+    section: 'risorse',
+    view: 'blocks',
+    blocks: defaultGlossarioBlocks,
+  },
+  {
+    id: 'page-reddit',
+    title: 'Gruppi Reddit',
+    icon: '💬',
+    section: 'community',
+    view: 'blocks',
+    blocks: defaultRedditBlocks,
+  },
+  {
+    id: 'page-piattaforme',
+    title: 'Altre Piattaforme',
+    icon: '🌍',
+    section: 'community',
+    view: 'blocks',
+    blocks: defaultPiattaformeBlocks,
+  },
+  {
+    id: 'page-community-wedding',
+    title: '50+ Community Wedding',
+    icon: '🗂️',
+    section: 'community',
+    view: 'blocks',
+    blocks: defaultCommunityWeddingBlocks,
+  },
+  {
+    id: 'page-baseline',
+    title: 'Baseline AI — Giu 2026',
+    icon: '📊',
+    section: 'monitoraggio',
+    view: 'blocks',
+    blocks: defaultBaselineBlocks,
   },
   {
     id: 'page-piano',
