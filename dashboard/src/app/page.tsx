@@ -251,6 +251,28 @@ export default function Workspace() {
     setAddingBlock(null)
   }
 
+  // Aggiunge un elemento DENTRO un gruppo (task-group / query-group)
+  function addChildBlock(pageId: string, parentId: string, type: Block['type']) {
+    const newBlock: Block = {
+      id: 'b-' + genId(),
+      type,
+      content: type === 'todo' ? 'Nuovo task' : '',
+      done: false,
+      comments: [],
+      fileName: '', fileData: '', fileType: '',
+      collapsed: false,
+      children: [],
+    }
+    save(w => ({
+      ...w,
+      pages: w.pages.map(p => p.id === pageId
+        ? { ...p, blocks: mapBlocks(p.blocks, parentId, b => ({ ...b, collapsed: false, children: [...b.children, newBlock] })) }
+        : p),
+    }))
+    setEditingBlock(newBlock.id)
+    setEditBlockContent(newBlock.content)
+  }
+
   function removeBlock(pageId: string, blockId: string) {
     save(w => ({
       ...w,
@@ -990,6 +1012,10 @@ export default function Workspace() {
             {!block.collapsed && (
               <div className="ml-4 border-l-2 border-zinc-100 dark:border-zinc-800 pl-3 space-y-0.5">
                 {block.children.map(child => renderBlock(child, pageId, depth + 1))}
+                <button
+                  onClick={() => addChildBlock(pageId, block.id, 'todo')}
+                  className="text-xs text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 px-1 py-0.5 mt-0.5 transition-colors"
+                >+ elemento</button>
               </div>
             )}
             {commentSection}
@@ -1030,6 +1056,10 @@ export default function Workspace() {
             {!block.collapsed && (
               <div className="ml-4 border-l-2 border-zinc-100 dark:border-zinc-800 pl-3 space-y-0.5">
                 {block.children.map(child => renderBlock(child, pageId, depth + 1))}
+                <button
+                  onClick={() => addChildBlock(pageId, block.id, 'text')}
+                  className="text-xs text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 px-1 py-0.5 mt-0.5 transition-colors"
+                >+ elemento</button>
               </div>
             )}
             {commentSection}
