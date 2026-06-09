@@ -17,6 +17,7 @@ import { defaultKeywordsBlocks } from './keywords'
 import { defaultGlossarioBlocks } from './glossario'
 import { defaultPartiDaQuiBlocks } from './partidaqui'
 import { defaultDiscoveryBlocks } from './discovery'
+import { defaultCompetitorBlocks } from './competitor'
 
 export const defaultBlocks: Block[] = [
   { id: 'b-h', type: 'heading', content: 'Strategia di visibilità AEO + SEO — Antonio Pileggi', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
@@ -374,9 +375,25 @@ export const defaultPages: Page[] = [
       { id: 'q-b6h', type: 'subheading', content: 'Blocco 6 — Griglia di valutazione e punteggio', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
       { id: 'q-b6a', type: 'text', content: 'Compila una riga per ogni combinazione query × motore × lingua. Tienila in un foglio (Google Sheets va benissimo) e ripeti il test ogni 30 giorni nello stesso ordine.', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
       { id: 'q-b6t', type: 'text', content: '| Data | Query | Motore | Lingua | Citato? | Posizione/Contesto | Come lo descrive (parole) | Fatti corretti? | Sentiment | Fonti citate |\n|------|-------|--------|--------|---------|-------------------|--------------------------|----------------|-----------|-------------|\n|  |  |  |  | Sì/No | 1°/tra altri/assente |  | Sì/Parz./No | + / 0 / − |  |', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
+      { id: 'q-b6fh', type: 'subheading', content: 'Griglia compilata — Baseline 9 giugno 2026 (12 test)', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
+      { id: 'q-b6ft', type: 'text', content: `| Data | Query | Motore | Lingua | Citato? | Posizione | Descrizione (parole) | Fatti | Sentiment | Fonti / competitor citati |
+|------|-------|--------|--------|---------|-----------|----------------------|-------|-----------|---------------------------|
+| 8/6 | Fotografi matrimonio Calabria | Perplexity | IT | No | assente | — | — | — | Google reviews: Scigliano, Covelli, Molaro |
+| 8/6 | Migliori fotografi Sud Italia | Perplexity | IT | No | assente | — | — | — | Google reviews: Cerrone, Fausti |
+| 8/6 | Destination wedding photographer Southern Italy | Gemini | EN | No | assente | — | — | — | Francioso, Cacciola, Rossi, Reccia |
+| 8/6 | Best wedding photographers in Calabria | Gemini | EN | No | assente | — | — | — | Cacciola, Pugliese, Coluccio, Armocida |
+| 8/6 | Fotografo matrimonio Tropea | Gemini | IT | No | assente | — | — | — | Cacciola, Pugliese, Shotix, Carelli |
+| 9/6 | Chi è Antonio Pileggi | ChatGPT | IT | Sì | scheda branded | editoriale, documentaristico, digitale+pellicola+VHS, senza tempo | Sì | + | sito, Matrimonio.com |
+| 9/6 | Fotografo in pellicola in Italia | ChatGPT | IT | No | assente | — | — | — | Santucci, Pozzer, Cuzzola, Betelli |
+| 9/6 | Fotografo matrimonio Catanzaro | ChatGPT | IT | No | assente | — | — | — | Vasapollo, Mazzei, Canino, Cosentino +4 |
+| 9/6 | Descrivimi lo stile di Antonio Pileggi | Gemini | IT | Sì | risposta branded | reportage editoriale, hopeless romantic, 35mm+VHS, palette calda, sense of place | Sì | + | non esplicitate |
+| 9/6 | In quali regioni lavora Antonio Pileggi | Gemini | IT | Sì | risposta branded | Calabria/Toscana/Sicilia/Puglia, destination, moda | Sì | + | non esplicitate |
+| 9/6 | Fotografi matrimonio Calabria | Gemini | IT | No | assente | — | — | — | itsiciliano, Santaera, Rossi, Morabito |
+| 9/6 | Destination wedding photographer Southern Italy (re-run) | Gemini | EN | No | assente | — | — | — | Francioso, Reccia, Cacciola, Daniela Katia |`, done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
       { id: 'q-b6score', type: 'text', content: 'Punteggio di visibilità (solo query unbranded, Blocco 1):\n• 2 punti = citato per primo o tra i primi nomi consigliati\n• 1 punto = menzionato ma insieme a molti altri / in coda\n• 0 punti = assente\n\nSomma i punti di tutte le query unbranded × 5 motori × 2 lingue → è il tuo AEO Visibility Score di partenza. L\'unico numero che conta è la sua crescita nei mesi successivi.', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
       { id: 'q-b6acc', type: 'text', content: 'Punteggio di accuratezza (Blocco 3): percentuale di fatti corretti. Obiettivo: arrivare e restare al 100% (è il segnale che l\'entità è "pulita" e le AI non allucinano più).', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
       { id: 'q-b6sent', type: 'text', content: 'Sentiment (Blocco 2): annota le parole ricorrenti. Obiettivo: che compaiano i termini del brand — atmosfera, autentico, pellicola/VHS, memoria, documentario, Sud Italia — al posto di descrizioni generiche o errate.', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
+      { id: 'q-b6res', type: 'text', content: '📊 Punteggio di partenza calcolato (9 giugno 2026, 12 test):\n• Visibilità (Blocco 1, solo unbranded): 8 query di scoperta distinte (Test 1-5, 7, 8, 11) → 0 punti su tutte → AEO Visibility Score = 0. Il Test 12 è un re-run del Test 3 (conferma lo 0, non aggiunge una query). Copertura ancora parziale: mancano AI Overviews e Claude e varie combinazioni di lingua.\n• Branded (Blocco 2): 3 su 3 citato e descritto correttamente (Test 6 ChatGPT; Test 9-10 Gemini).\n• Accuratezza (Blocco 3): 1 su 1 = 100% (Test 10, regioni corrette fino a Maida).\n• Sentiment (Blocco 2): positivo e on-brand — parole ricorrenti: editoriale, documentaristico/reportage, autentico/spontaneo, hopeless romantic, pellicola/35mm/VHS, atmosfera/nostalgia, sense of place, elegante/senza tempo. Assente: aggancio esplicito a Sud Italia/Calabria nello stile.\n• Competitor stabili da battere: Andrea Cacciola (Calabria, presente in 4 viste), Francioso Studios e Luigi Reccia (Sud Italia EN); sulla pellicola Santucci e Pozzer; a Catanzaro Salvatore Cosentino.\n• Lettura: branded vinto (entità pulita), scoperta a 0. La crescita da misurare è il passaggio da 0 a >0 sulle 8 query unbranded.', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
       { id: 'q-d8', type: 'divider', content: '', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
       { id: 'q-cadh', type: 'subheading', content: 'Cadenza consigliata', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
       { id: 'q-cad', type: 'text', content: '• Mese 0 (ora): baseline completa, tutti i blocchi. È la foto del "prima".\n• Mese 1 e 2: ripeti Blocco 1 (visibilità) e Blocco 3 (accuratezza) — sono i più reattivi al lavoro su recensioni, schema ed entità.\n• Mese 3: baseline completa di nuovo, incluso Blocco 5, e confronta tutti i punteggi con il Mese 0.', done: false, comments: [], fileName: '', fileData: '', fileType: '', collapsed: false, children: [] },
@@ -474,6 +491,14 @@ export const defaultPages: Page[] = [
     section: 'monitoraggio',
     view: 'blocks',
     blocks: defaultBaselineBlocks,
+  },
+  {
+    id: 'page-competitor',
+    title: 'Analisi Competitor',
+    icon: '🥊',
+    section: 'monitoraggio',
+    view: 'blocks',
+    blocks: defaultCompetitorBlocks,
   },
   {
     id: 'page-piano',
